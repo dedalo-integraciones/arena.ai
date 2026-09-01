@@ -20,7 +20,7 @@ OUT_W, OUT_H = 404, 720
 
 # ---- región del hombre-árbol (coords originales 899x1599) ----
 RX0, RX1 = 0, 448
-RY0, RY1 = 676, 1240
+RY0, RY1 = 676, 1262        # borde inferior en fondo puro (raices mueren ~1245)
 FE = 16.0                   # ancho de feather
 
 # ---- centro del chisporroteo de la mecha ----
@@ -51,16 +51,16 @@ def build_weight():
 # ---- curva de ascenso "con dificultad" (px originales) ----
 def dy_dx(t):
     s = (t / DUR) ** 1.8                      # rampa lenta general
-    A = 18.0
-    trem = 1.1 * np.sin(2*np.pi*1.35*t + 1.3*np.sin(2*np.pi*0.21*t)) * (0.25 + 0.75*s)
+    A = 34.0                                  # ascenso total (px originales)
+    trem = 2.0 * np.sin(2*np.pi*1.35*t + 1.3*np.sin(2*np.pi*0.21*t)) * (0.25 + 0.75*s)
     def bump(t, c, w):                        # pujo que sube y vuelve
         x = (t - c) / w
         return np.exp(-x*x)
-    slips = -2.4*bump(t, 11.0, 1.6) - 1.8*bump(t, 21.0, 1.4)   # micro-repliegues
-    lurch = 1.3*bump(t, 6.0, 1.1) + 1.5*bump(t, 16.0, 1.2) + 1.2*bump(t, 25.5, 1.3)
+    slips = -4.0*bump(t, 11.0, 1.6) - 3.0*bump(t, 21.0, 1.4)   # repliegues: pierde pie
+    lurch = 2.2*bump(t, 6.0, 1.1) + 2.5*bump(t, 16.0, 1.2) + 2.0*bump(t, 25.5, 1.3)
     dy = A*s + trem + slips + lurch
     dy = max(dy, 0.0)
-    dx = 0.6 * np.sin(2*np.pi*0.55*t) * s
+    dx = 0.9 * np.sin(2*np.pi*0.55*t) * s
     return dy, dx
 
 # ---- ruido suave determinista para la llama ----
