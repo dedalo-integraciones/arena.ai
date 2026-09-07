@@ -1,6 +1,6 @@
 # Hoja de tiempos — `deposito-bombal-narracion-3min.mp3`
 
-**Duración exacta:** 3:00.0 · Mono · MP3 192 kbps / 44.1 kHz · Loudness −16 LUFS (TP −1.5 dB)
+**Duración exacta:** 3:00.0 · Mono · MP3 256 kbps / 44.1 kHz · Loudness −16 LUFS (TP −1.5 dB)
 **Voz:** femenina, cálida, español neutro rioplatense (segunda opción de la audición) · solo narración, sin música (mezclar el piano al 30-40 %)
 
 | Escena | Ventana | Entra | Sale | Frase |
@@ -20,12 +20,26 @@
 | | | 2:15.0 | 2:18.9 | ¿Cambió un precio? …queda publicado en el acto. |
 | | *silencio dramático* | 2:18.9 → 2:28.0 | — | corte seco de música en 2:28, según guion |
 | | | 2:28.0 | 2:29.7 | **Eso es control.** (más lento, 0.90×) |
-| 6 — Números y cierre | 2:30–3:00 | 2:30.0 | 2:38.8 | Hoy, 517 productos viven en este catálogo… |
-| | | 2:40.0 | 2:45.0 | Y todo esto es tuyo: la plataforma, los datos, el dominio. |
-| | | 2:50.0 | 2:56.9 | Agendamos quince minutos de llamada esta semana… |
+| 6 — Números y cierre | 2:30–3:00 | 2:30.0 | 2:38.7 | Hoy, 517 productos viven en este catálogo… |
+| | | 2:40.0 | 2:45.2 | Y todo esto es tuyo. La plataforma, los datos, el dominio. |
+| | | 2:50.0 | 2:57.2 | Agendamos 15 minutos de llamada esta semana… |
 
 Cada frase entra exactamente en el timecode de su subtítulo rotativo: los subtítulos del guion
 se pueden quemar tal cual, sin reajustes. Ninguna frase invade la ventana de la escena siguiente.
+
+## Control de acento (escena 6 regrabada)
+
+La primera versión de la escena 6 salió con ceceo peninsular en los números (*diecisiete,
+trescientos, quince*). Se regrabó con la misma voz escribiendo las cifras en dígitos, y se
+verificó midiendo el centroide espectral de las fricativas sordas:
+
+| Tramo | Centroide | Fricativas graves ([θ]) | |
+|---|---|---|---|
+| Escenas 1-5 (referencia) | 8479 Hz | 0 % | patrón rioplatense |
+| Escena 6 — versión vieja | 6220-6944 Hz | 12-21 % | ceceo, descartada |
+| Escena 6 — versión actual | 7922-8335 Hz | 0-3 % | coincide con la referencia |
+
+Todo el tramo 0:00–2:29.8 se conservó del máster aprobado (no se regrabó).
 
 Reconstrucción del mix: `build/split.py` (detección de frases por silencio) + `build/assemble.py`
 (montaje en el timeline de 180 s), sobre los WAV de narración originales.
