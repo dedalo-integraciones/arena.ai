@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de productos</title>
+<style>
+  :root { --bg:#1b1b1b; --card:#262626; --txt:#f2f2f2; --accent:#e8a33d; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--txt); font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; padding:32px 16px; }
+  h1 { text-align:center; font-size:1.6rem; letter-spacing:.5px; margin-bottom:6px; }
+  p.sub { text-align:center; color:#bbb; margin-bottom:28px; font-size:.9rem; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:18px; max-width:1100px; margin:0 auto; }
+  .card { background:var(--card); border-radius:10px; padding:12px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.4); }
+  .card .frame { background:#111; border-radius:8px; padding:6px; display:inline-block; }
+  .card img { width:160px; height:160px; image-rendering:auto; border-radius:6px; display:block; cursor:zoom-in; transition:transform .2s; }
+  .card img:hover { transform:scale(2.2); position:relative; z-index:5; box-shadow:0 8px 24px rgba(0,0,0,.7); }
+  .card h3 { font-size:.85rem; margin-top:10px; font-weight:600; min-height:2.2em; display:flex; align-items:center; justify-content:center; }
+  .card a { color:var(--accent); font-size:.72rem; text-decoration:none; }
+  .card a:hover { text-decoration:underline; }
+  .pendiente .frame { width:172px; height:172px; display:flex; align-items:center; justify-content:center; color:#777; font-size:.75rem; border:1px dashed #555; }
+  .badge { display:inline-block; margin-top:8px; font-size:.68rem; padding:2px 8px; border-radius:99px; background:#3a3a3a; color:#9f9; }
+  .pendiente .badge { color:#f99; }
+</style>
+</head>
+<body>
+<h1>Catálogo de productos</h1>
+<p class="sub">Imágenes de 160×160 px · pasá el cursor para ampliar · <a href="originales/" style="color:#e8a33d">ver originales en alta resolución</a></p>
+<div class="grid" id="grid"></div>
+<script>
+const productos = [
+  ["01-2-lomitos-papas-chicas.jpg","2 sándwiches de lomo + papas fritas chicas"],
+  ["02-lomito-especial-papas-chicas.jpg","1 sándwich de lomo especial + papas fritas chicas"],
+  ["03-burguer-cheddar-papas-chicas.jpg","Burguer cheddar + papas fritas chicas"],
+  ["04-pizza-muzzarela-empanadas.jpg","1 pizza muzzarela + empanadas"],
+  ["05-2-pizzas-muzzarela.jpg","2 pizzas muzzarela"],
+  ["06-pizza-muzzarela-empanadas-2.jpg","1 pizza muzzarela + empanadas"],
+  ["07-lomito.jpg","1 sándwich de lomo"],
+  ["08-lomito-jamon-huevo.jpg","1 sándwich de lomo con jamón y huevo"],
+  ["09-burguer-cheddar-1-medallon.jpg","Burguer cheddar 1 medallón de carne"],
+  ["10-burguer-cheddar-2-medallones.jpg","Burguer cheddar 2 medallones de carne"],
+  ["11-pizza-muzzarela.jpg","1 pizza de muzzarela"],
+  ["12-pizza-especial-jamon.jpg","1 pizza especial con jamón"],
+  ["13-empanadas-carne.jpg","Empanadas de carne"],
+  ["14-empanadas-jamon-queso.jpg","Empanadas de jamón y queso"],
+  ["15-lasagna.jpg","1 plato de lasagna"],
+  ["16-canelones.jpg","1 plato de canelones"],
+  ["17-milanesa-pollo-papas.jpg","1 plato de milanesa de pollo y papas fritas"],
+  ["18-merluza-romana.jpg","1 plato de merluza a la romana"],
+];
+const grid = document.getElementById("grid");
+productos.forEach(([file, nombre]) => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <div class="frame"><img src="img/${file}" alt="${nombre}" onerror="this.closest('.card').classList.add('pendiente');this.remove();this.parentElement.insertAdjacentHTML('beforeend','<span>pendiente</span>')"></div>
+    <h3>${nombre}</h3>
+    <span class="badge">160×160</span><br>
+    <a href="originales/${file}" target="_blank">ver en alta resolución</a>`;
+  grid.appendChild(card);
+});
+</script>
+</body>
+</html>
