@@ -1,0 +1,60 @@
+<!-- ===== Portadas por rubro · 573x253 ===== -->
+<div class="rubros-grid">
+  <a class="rubro-card" href="/hamburgueseria">
+    <img src="/assets/portadas/hamburgueseria.jpg" width="573" height="253" loading="lazy" decoding="async"
+         alt="Hamburguesería — hamburguesa gourmet con papas fritas">
+    <span class="rubro-card__titulo">Hamburguesería</span>
+  </a>
+
+  <a class="rubro-card" href="/pizzeria">
+    <img src="/assets/portadas/pizzeria.jpg" width="573" height="253" loading="lazy" decoding="async"
+         alt="Pizzería — pizza napolitana al horno de barro">
+    <span class="rubro-card__titulo">Pizzería</span>
+  </a>
+
+  <a class="rubro-card" href="/minutas">
+    <img src="/assets/portadas/minutas.jpg" width="573" height="253" loading="lazy" decoding="async"
+         alt="Minutas — milanesa a la napolitana con papas fritas">
+    <span class="rubro-card__titulo">Minutas</span>
+  </a>
+
+  <a class="rubro-card" href="/sushi">
+    <img src="/assets/portadas/sushi.jpg" width="573" height="253" loading="lazy" decoding="async"
+         alt="Sushi — surtido de nigiris y rolls frescos">
+    <span class="rubro-card__titulo">Sushi</span>
+  </a>
+
+  <a class="rubro-card" href="/cafeteria">
+    <img src="/assets/portadas/cafeteria.jpg" width="573" height="253" loading="lazy" decoding="async"
+         alt="Cafetería — capuchino con latte art y medialuna">
+    <span class="rubro-card__titulo">Cafetería</span>
+  </a>
+</div>
+
+<style>
+/* Caja contenedora: 3 columnas, se acomodan solas */
+.rubros-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+              gap:18px; margin:0; padding:0; }
+
+.rubro-card{ position:relative; display:block; text-decoration:none;
+             border-radius:12px; overflow:hidden; background:#111;
+             box-shadow:0 2px 10px rgba(0,0,0,.18);
+             transition:transform .25s ease, box-shadow .25s ease; }
+
+.rubro-card img{ display:block; width:100%; height:auto; aspect-ratio:573/253;
+                 object-fit:cover; transition:transform .45s ease; }
+
+.rubro-card__titulo{ position:absolute; left:0; right:0; bottom:0;
+                     padding:26px 14px 11px; color:#fff; font:600 17px/1.2 system-ui,sans-serif;
+                     background:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,0));
+                     text-shadow:0 1px 3px rgba(0,0,0,.5); }
+
+.rubro-card:hover{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(0,0,0,.3); }
+.rubro-card:hover img{ transform:scale(1.045); }
+.rubro-card:focus-visible{ outline:3px solid #ff6b35; outline-offset:2px; }
+
+@media (prefers-reduced-motion:reduce){
+  .rubro-card,.rubro-card img{ transition:none; }
+  .rubro-card:hover img{ transform:none; }
+}
+</style>
