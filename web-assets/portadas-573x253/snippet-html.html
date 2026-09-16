@@ -58,3 +58,59 @@
   .rubro-card:hover img{ transform:none; }
 }
 </style>
+
+<!-- ===== Sello "TU MARCA" superpuesto sobre cada portada ===== -->
+<!-- El sello es una sola imagen PNG transparente reutilizada en todas las tarjetas. -->
+<div class="rubros-grid">
+  <a class="rubro-card" href="/hamburgueseria">
+    <img class="rubro-card__foto" src="/assets/portadas/hamburgueseria.jpg" width="573" height="253"
+         loading="lazy" decoding="async" alt="Hamburguesería — hamburguesa gourmet con papas fritas">
+    <img class="rubro-card__sello" src="/assets/sello/sello-blanco-512.png" alt="" aria-hidden="true">
+    <span class="rubro-card__titulo">Hamburguesería</span>
+  </a>
+
+  <a class="rubro-card" href="/pizzeria">
+    <img class="rubro-card__foto" src="/assets/portadas/pizzeria.jpg" width="573" height="253"
+         loading="lazy" decoding="async" alt="Pizzería — pizza napolitana al horno de barro">
+    <img class="rubro-card__sello" src="/assets/sello/sello-blanco-512.png" alt="" aria-hidden="true">
+    <span class="rubro-card__titulo">Pizzería</span>
+  </a>
+
+  <a class="rubro-card" href="/minutas">
+    <img class="rubro-card__foto" src="/assets/portadas/minutas.jpg" width="573" height="253"
+         loading="lazy" decoding="async" alt="Minutas — milanesa a la napolitana con papas fritas">
+    <img class="rubro-card__sello rubro-card__sello--negro" src="/assets/sello/sello-negro-512.png" alt="" aria-hidden="true">
+    <span class="rubro-card__titulo">Minutas</span>
+  </a>
+
+  <a class="rubro-card" href="/sushi">
+    <img class="rubro-card__foto" src="/assets/portadas/sushi.jpg" width="573" height="253"
+         loading="lazy" decoding="async" alt="Sushi — surtido de nigiris y rolls frescos">
+    <img class="rubro-card__sello" src="/assets/sello/sello-blanco-512.png" alt="" aria-hidden="true">
+    <span class="rubro-card__titulo">Sushi</span>
+  </a>
+
+  <a class="rubro-card" href="/cafeteria">
+    <img class="rubro-card__foto" src="/assets/portadas/cafeteria.jpg" width="573" height="253"
+         loading="lazy" decoding="async" alt="Cafetería — capuchino con latte art y medialuna">
+    <img class="rubro-card__sello" src="/assets/sello/sello-blanco-512.png" alt="" aria-hidden="true">
+    <span class="rubro-card__titulo">Cafetería</span>
+  </a>
+</div>
+
+<style>
+.rubro-card__foto{ display:block; width:100%; height:auto; aspect-ratio:573/253; object-fit:cover; }
+
+/* Sello: 27% del ancho de la tarjeta, abajo a la derecha, leve inclinación.
+   Encima del hover de la foto => pointer-events:none para no romper el click. */
+.rubro-card__sello{ position:absolute; right:14px; bottom:10px; width:27%; height:auto;
+                    transform:rotate(-9deg); opacity:.92; pointer-events:none;
+                    filter:drop-shadow(0 2px 5px rgba(0,0,0,.35));
+                    transition:transform .25s ease; }
+.rubro-card__sello--negro{ opacity:.82; }
+.rubro-card:hover .rubro-card__sello{ transform:rotate(-9deg) scale(1.04); }
+
+@media (prefers-reduced-motion:reduce){
+  .rubro-card__sello, .rubro-card:hover .rubro-card__sello{ transition:none; transform:rotate(-9deg); }
+}
+</style>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sello "TU MARCA" — variantes y aplicación</title>
+<style>
+  :root{ --bg:#0d0e10; --panel:#171a1e; --line:#262a30; --txt:#f1f2f4; --dim:#98a0a8; --accent:#ff6b35; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; padding:40px 24px 72px; background:var(--bg); color:var(--txt);
+        font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  .wrap{ max-width:1240px; margin:0 auto; }
+  h1{ font-size:26px; margin:0 0 6px; letter-spacing:-.02em; }
+  h2{ font-size:16px; margin:52px 0 16px; text-transform:uppercase; letter-spacing:.09em; color:var(--dim); }
+  p.lead{ margin:0; color:var(--dim); }
+  .badge{ display:inline-block; padding:2px 9px; border-radius:100px; background:#22262c;
+          color:var(--dim); font-size:12px; margin-left:8px; }
+
+  /* --- sellos sueltos --- */
+  .pair{ display:flex; flex-wrap:wrap; gap:26px; }
+  .sealbox{ border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--panel); }
+  .sealbox img{ display:block; width:340px; max-width:100%; height:auto; }
+  .sealbox figcaption{ padding:12px 16px; font-size:13px; color:var(--dim);
+                       border-top:1px solid var(--line); }
+  .sealbox b{ color:var(--txt); font-weight:600; }
+
+  .quad{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; }
+  .quad .sealbox img{ width:100%; }
+
+  /* --- demo de superposición sobre portadas --- */
+  .cards{ display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:20px; }
+  .covercard{ border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--panel); }
+  .cover{ position:relative; aspect-ratio:573/253; overflow:hidden; }
+  .cover img.foto{ width:100%; height:100%; object-fit:cover; display:block; }
+  /* el sello, superpuesto y levemente rotado */
+  .cover img.sello{ position:absolute; right:14px; bottom:10px; width:27%; height:auto;
+                    transform:rotate(-9deg); opacity:.92; pointer-events:none;
+                    filter:drop-shadow(0 2px 5px rgba(0,0,0,.35)); }
+  .cover .titulo{ position:absolute; left:0; bottom:0; right:0; padding:26px 14px 11px;
+                 font-weight:600; color:#fff; background:linear-gradient(to top,rgba(0,0,0,.72),transparent); }
+  .covercard figcaption{ padding:10px 14px; font-size:12.5px; color:var(--dim);
+                         font-family:ui-monospace,Menlo,monospace; }
+
+  table{ width:100%; border-collapse:collapse; margin-top:8px; font-size:13.5px; }
+  th,td{ text-align:left; padding:9px 12px; border-bottom:1px solid var(--line); }
+  th{ color:var(--dim); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+  td code{ background:#22262c; padding:2px 6px; border-radius:5px; color:#ffd7c2; font-size:12.5px; }
+  pre{ background:#14171a; border:1px solid var(--line); border-radius:12px; padding:16px 18px;
+       overflow:auto; font-size:12.5px; line-height:1.6; color:#d8dee5; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Sello "TU MARCA" — redondo antiguo</h1>
+  <p class="lead">Blanco sobre negro y negro sobre blanco. PNG con transparencia, vectorial en origen (1200&nbsp;px), con desgaste de goma estampada.</p>
+
+  <h2>1 · Los dos pedidos</h2>
+  <div class="pair">
+    <figure class="sealbox" style="margin:0">
+      <img src="web/sello-blanco-384.png" alt="Sello blanco sobre fondo negro">
+      <figcaption><b>Blanco · fondo negro</b></figcaption>
+    </figure>
+    <figure class="sealbox" style="margin:0">
+      <img src="web/sello-negro-384.png" alt="Sello negro sobre fondo blanco">
+      <figcaption><b>Negro · fondo blanco</b></figcaption>
+    </figure>
+  </div>
+
+  <h2>2 · Variantes del diseño</h2>
+  <div class="quad">
+    <figure class="sealbox" style="margin:0">
+      <img src="web/sello-blanco-256.png" alt="Sello clásico blanco">
+      <figcaption>Clásico · blanco</figcaption>
+    </figure>
+    <figure class="sealbox" style="margin:0">
+      <img src="web/sello-negro-256.png" alt="Sello clásico negro">
+      <figcaption>Clásico · negro</figcaption>
+    </figure>
+    <figure class="sealbox" style="margin:0">
+      <img src="sello-wordmark-blanco-transparente.png" alt="Sello alternativo blanco con nombre grande al centro" style="background:#000">
+      <figcaption>Alternativo · blanco</figcaption>
+    </figure>
+    <figure class="sealbox" style="margin:0">
+      <img src="sello-wordmark-negro-transparente.png" alt="Sello alternativo negro con nombre grande al centro" style="background:#fff">
+      <figcaption>Alternativo · negro</figcaption>
+    </figure>
+  </div>
+
+  <h2>3 · Aplicado sobre las portadas <span class="badge">superposición en vivo</span></h2>
+  <p class="lead" style="margin-bottom:18px">Estas tarjetas cargan la portada limpia + el PNG transparente del sello encima: es más liviano que incrustarlo en cada foto.</p>
+  <div class="cards">
+    <figure class="covercard" style="margin:0">
+      <div class="cover">
+        <img class="foto" src="../portadas-573x253/hamburgueseria.jpg" alt="Portada de hamburguesería">
+        <img class="sello" src="web/sello-blanco-512.png" alt="">
+        <span class="titulo">Hamburguesería</span>
+      </div>
+      <figcaption>sello-blanco-512.png</figcaption>
+    </figure>
+    <figure class="covercard" style="margin:0">
+      <div class="cover">
+        <img class="foto" src="../portadas-573x253/pizzeria.jpg" alt="Portada de pizzería">
+        <img class="sello" src="web/sello-blanco-512.png" alt="">
+        <span class="titulo">Pizzería</span>
+      </div>
+      <figcaption>sello-blanco-512.png</figcaption>
+    </figure>
+    <figure class="covercard" style="margin:0">
+      <div class="cover">
+        <img class="foto" src="../portadas-573x253/minutas.jpg" alt="Portada de minutas">
+        <img class="sello" src="web/sello-negro-512.png" alt="">
+        <span class="titulo">Minutas</span>
+      </div>
+      <figcaption>sello-negro-512.png</figcaption>
+    </figure>
+    <figure class="covercard" style="margin:0">
+      <div class="cover">
+        <img class="foto" src="../portadas-573x253/sushi.jpg" alt="Portada de sushi">
+        <img class="sello" src="web/sello-blanco-512.png" alt="">
+        <span class="titulo">Sushi</span>
+      </div>
+      <figcaption>sello-blanco-512.png</figcaption>
+    </figure>
+    <figure class="covercard" style="margin:0">
+      <div class="cover">
+        <img class="foto" src="../portadas-573x253/cafeteria.jpg" alt="Portada de cafetería">
+        <img class="sello" src="web/sello-negro-512.png" alt="">
+        <span class="titulo">Cafetería</span>
+      </div>
+      <figcaption>sello-negro-512.png</figcaption>
+    </figure>
+  </div>
+
+  <h2>4 · Archivos</h2>
+  <table>
+    <thead><tr><th>Archivo</th><th>Qué es</th><th>Tamaño</th></tr></thead>
+    <tbody>
+      <tr><td><code>sello-blanco-fondo-negro.png / .jpg</code></td><td>Sello blanco sobre fondo negro (el pedido)</td><td>1200×1200</td></tr>
+      <tr><td><code>sello-negro-fondo-blanco.png / .jpg</code></td><td>Sello negro sobre fondo blanco (el pedido)</td><td>1200×1200</td></tr>
+      <tr><td><code>sello-blanco-transparente.png</code></td><td>Sin fondo, para superponer sobre las fotos</td><td>1200×1200</td></tr>
+      <tr><td><code>sello-negro-transparente.png</code></td><td>Idem en negro</td><td>1200×1200</td></tr>
+      <tr><td><code>*-transparente-limpio.png</code></td><td>Sin desgaste, bordes nítidos</td><td>1200×1200</td></tr>
+      <tr><td><code>sello-wordmark-*.png</code></td><td>Variante con "TU MARCA" grande al centro</td><td>1200×1200</td></tr>
+      <tr><td><code>web/sello-{blanco,negro}-{128,256,384,512}.png</code></td><td>Tamaños listos para web</td><td>128–512</td></tr>
+      <tr><td><code>../portadas-con-sello-blanco/</code> y <code>-negro/</code></td><td>Las 5 portadas con el sello ya incrustado</td><td>573×253</td></tr>
+    </tbody>
+  </table>
+
+  <h2>5 · Cómo usarlo</h2>
+  <p class="lead">Superposición (recomendado): una sola imagen de sello reutilizada en todas las tarjetas.</p>
+<pre>&lt;div class="rubro"&gt;
+  &lt;img class="rubro__foto" src="/assets/portadas/pizzeria.jpg"
+       width="573" height="253" loading="lazy"
+       alt="Pizzería — pizza napolitana al horno de barro"&gt;
+  &lt;img class="rubro__sello" src="/assets/sello/sello-blanco-512.png" alt="" aria-hidden="true"&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.rubro{ position:relative; border-radius:12px; overflow:hidden; }
+.rubro__foto{ display:block; width:100%; height:auto; }
+.rubro__sello{ position:absolute; right:14px; bottom:10px; width:27%; height:auto;
+               transform:rotate(-9deg); opacity:.92; pointer-events:none; }
+&lt;/style&gt;</pre>
+  <p class="lead">También podés usar directo las portadas ya selladas de <code>portadas-con-sello-blanco/</code> si no querés tocar el HTML.</p>
+
+</div>
+</body>
+</html>
